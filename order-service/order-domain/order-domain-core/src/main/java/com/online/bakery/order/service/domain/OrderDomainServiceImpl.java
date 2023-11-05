@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 public class OrderDomainServiceImpl implements OrderDomainService {
 
-    private static final String UTC = "UTC"
+    private static final String UTC = "UTC";
     @Override
     public OrderCreatedEvent validateAndInitiateOrder(Order order, Bakery bakery) {
         setOrderProductInformation(order, bakery);
