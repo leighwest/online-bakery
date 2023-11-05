@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface BakeryRepository {
 
-    Optional<Bakery> findBakeryInformation(Bakery bakery);
+    Bakery fetchBakeryInformation();
 }

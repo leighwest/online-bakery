@@ -1,6 +1,5 @@
 package com.online.bakery.order.service.domain.dto.create;
 
-import com.online.bakery.order.service.domain.entity.OrderItem;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
