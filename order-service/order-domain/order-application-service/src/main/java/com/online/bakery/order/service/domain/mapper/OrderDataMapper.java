@@ -6,6 +6,7 @@ import com.online.bakery.domain.valueobject.ProductId;
 import com.online.bakery.order.service.domain.dto.create.CreateOrderCommand;
 import com.online.bakery.order.service.domain.dto.create.CreateOrderResponse;
 import com.online.bakery.order.service.domain.dto.create.OrderAddress;
+import com.online.bakery.order.service.domain.dto.track.TrackOrderResponse;
 import com.online.bakery.order.service.domain.entity.Order;
 import com.online.bakery.order.service.domain.entity.OrderItem;
 import com.online.bakery.order.service.domain.entity.Product;
@@ -33,6 +34,14 @@ public class OrderDataMapper {
         return CreateOrderResponse.builder()
                 .orderTrackingId(order.getTrackingId().getValue())
                 .orderStatus(order.getOrderStatus())
+                .build();
+    }
+
+    public TrackOrderResponse orderToTrackOrderResponse(Order order) {
+        return TrackOrderResponse.builder()
+                .orderTrackingId(order.getTrackingId().getValue())
+                .orderStatus(order.getOrderStatus())
+                .failureMessages(order.getFailureMessages())
                 .build();
     }
 
