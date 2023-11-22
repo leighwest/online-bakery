@@ -1,7 +1,7 @@
 {
     "namespace": "com.online.bakery.kafka.order.avro.model",
     "type": "record",
-    "name": "RestaurantApprovalRequestAvroModel",
+    "name": "BakeryApprovalRequestAvroModel",
     "fields": [
         {
             "name": "id",
@@ -18,7 +18,7 @@
             }
         },
         {
-            "name": "restaurantId",
+            "name": "bakeryId",
             "type": {
                 "type": "string",
                 "logicalType": "uuid"
@@ -32,10 +32,10 @@
             }
         },
         {
-            "name": "restaurantOrderStatus",
+            "name": "bakeryOrderStatus",
             "type": {
                   "type": "enum",
-                  "name": "RestaurantOrderStatus",
+                  "name": "BakeryOrderStatus",
                   "symbols": ["PAID"]
             }
         },

@@ -20,6 +20,22 @@
             <groupId>com.online.bakery</groupId>
             <artifactId>order-application-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.online.bakery</groupId>
+            <artifactId>kafka-producer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.bakery</groupId>
+            <artifactId>kafka-consumer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.bakery</groupId>
+            <artifactId>kafka-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.bakery</groupId>
+            <artifactId>order-application</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
