@@ -6,5 +6,8 @@ import java.util.Optional;
 
 public interface BakeryRepository {
 
-    Bakery fetchBakeryInformation();
+//    Bakery fetchBakeryInformation();
+
+    // FIXME: shouldn't need an optional - I know I have a bakery
+    Optional<Bakery> findBakeryInformation(Bakery bakery);
 }
