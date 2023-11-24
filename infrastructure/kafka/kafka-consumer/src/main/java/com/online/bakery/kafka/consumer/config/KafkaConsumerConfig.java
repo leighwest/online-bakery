@@ -3,6 +3,7 @@ package com.online.bakery.kafka.consumer.config;
 import com.online.bakery.kafka.config.data.KafkaConfigData;
 import com.online.bakery.kafka.config.data.KafkaConsumerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;

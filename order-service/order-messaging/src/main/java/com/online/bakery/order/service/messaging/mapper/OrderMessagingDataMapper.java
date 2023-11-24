@@ -1,6 +1,10 @@
 package com.online.bakery.order.service.messaging.mapper;
 
+import com.online.bakery.domain.valueobject.OrderApprovalStatus;
+import com.online.bakery.domain.valueobject.PaymentStatus;
 import com.online.bakery.kafka.order.avro.model.*;
+import com.online.bakery.order.service.domain.dto.message.BakeryApprovalResponse;
+import com.online.bakery.order.service.domain.dto.message.PaymentResponse;
 import com.online.bakery.order.service.domain.entity.Order;
 import com.online.bakery.order.service.domain.event.OrderCancelledEvent;
 import com.online.bakery.order.service.domain.event.OrderCreatedEvent;
@@ -56,6 +60,35 @@ public class OrderMessagingDataMapper {
                 .setPrice(order.getPrice().getAmount())
                 .setCreatedAt(orderPaidEvent.getCreatedAt().toInstant())
                 .setBakeryOrderStatus(BakeryOrderStatus.PAID)
+                .build();
+    }
+
+    public PaymentResponse paymentResponseAvroModelToPaymentResponse(PaymentResponseAvroModel paymentResponseAvroModel) {
+
+        return PaymentResponse.builder()
+                .id(paymentResponseAvroModel.getId())
+                .sagaId(paymentResponseAvroModel.getSagaId())
+                .paymentId(paymentResponseAvroModel.getId())
+                .customerId(paymentResponseAvroModel.getCustomerId())
+                .orderId(paymentResponseAvroModel.getOrderId())
+                .price(paymentResponseAvroModel.getPrice())
+                .createdAt(paymentResponseAvroModel.getCreatedAt())
+                .paymentStatus(PaymentStatus.valueOf(paymentResponseAvroModel.getPaymentStatus().name()))
+                .failureMessages(paymentResponseAvroModel.getFailureMessages())
+                .build();
+    }
+
+    public BakeryApprovalResponse
+    approvalResponseAvroModelToApprovalResponse(BakeryApprovalResponseAvroModel bakeryApprovalResponseAvroModel) {
+        return BakeryApprovalResponse.builder()
+                .id(bakeryApprovalResponseAvroModel.getId())
+                .sagaId(bakeryApprovalResponseAvroModel.getSagaId())
+                .bakeryId(bakeryApprovalResponseAvroModel.getBakeryId())
+                .orderId(bakeryApprovalResponseAvroModel.getOrderId())
+                .createdAt(bakeryApprovalResponseAvroModel.getCreatedAt())
+                .orderApprovalStatus(OrderApprovalStatus.valueOf(
+                        bakeryApprovalResponseAvroModel.getOrderApprovalStatus().name()))
+                .failureMessages(bakeryApprovalResponseAvroModel.getFailureMessages())
                 .build();
     }
 }
